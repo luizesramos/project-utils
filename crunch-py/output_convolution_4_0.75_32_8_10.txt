@@ -1,0 +1,35 @@
+==2027== NVPROF is profiling process 2027, command: ../bin/convolution ../data/4/input0.ppm ../data/4/input1.csv output_convolution.ppm 0.75 32 8
+==2027== Warning: Some events or metrics can't be profiled on device 0 because hardware resource is busy
+==2027== Profiling application: ../bin/convolution ../data/4/input0.ppm ../data/4/input1.csv output_convolution.ppm 0.75 32 8
+==2027== Profiling result:
+==2027== Event result:
+Invocations                      Event Name         Min         Max         Avg
+Device "GeForce GTX 660 Ti (0)"
+	Kernel: void PSkel::stencilCU<convolution, float, float>(float*, float, float*, int, int, int, int, int, convolution*)
+          1                   inst_executed   397178640   397178640   397178640
+          1                   active_cycles  1068115709  1068115709  1068115709
+          1                 sm_cta_launched       18360       18360       18360
+          1                          branch    61813800    61813800    61813800
+          1                divergent_branch       97200       97200       97200
+          1              l1_global_load_hit           0           0           0
+          1             l1_global_load_miss           0           0           0
+
+ Performance counter stats for 'nvprof --events sm_cta_launched,l1_global_load_hit,l1_global_load_miss,elapsed_cycles_sm,active_cycles,branch,divergent_branch,inst_executed ../bin/convolution ../data/4/input0.ppm ../data/4/input1.csv output_convolution.ppm 0.75 32 8':
+
+     6.004.367.801 cycles                    #    0,000 GHz                     [25,38%]
+     4.406.967.168 instructions              #    0,73  insns per cycle         [37,72%]
+       842.542.527 branches                                                     [49,08%]
+        35.648.834 branch-misses             #    4,23% of all branches         [61,01%]
+     1.125.466.703 cache-references                                             [61,64%]
+        31.511.286 cache-misses              #    2,800 % of all cache refs     [63,98%]
+        28.393.591 LLC-loads
+                                                   [28,08%]
+         4.401.486 LLC-misses
+               #   15,50% of all LL-cache hits    [27,62%]
+       1856,398236 cpu-clock                                                   
+
+       0,957337707 seconds time elapsed
+
+real 0.97
+user 1.41
+sys 0.43
